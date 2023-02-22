@@ -1,5 +1,5 @@
 Around Aspect realization for custom sorting by Entity Enumerated field with dynamic CASE WHEN builder.
-Aspect purpose is to implement such custom sorting for Data JPA reposiroty method:
+Aspect purpose is to implement such custom sorting for Data JPA repository method:
 
   Page<Entity> findAll(Predicate predicate, Pageable pageble)
   
@@ -70,6 +70,11 @@ Ex.:
     @Transactional(readOnly = true)
     @Override
     public Page<CreatureDto> findCreatures(CreaturePredicate predicate, Pageable pageable) {
+
+LIMITATIONS:
+1) Sort parameter name must match field name of Entity.
+2) Only single Sort is supported. Easy to improve, if necessary!
+3) Need QueryDSL plugin for generating QEntity classes.
 
 The end.
 
