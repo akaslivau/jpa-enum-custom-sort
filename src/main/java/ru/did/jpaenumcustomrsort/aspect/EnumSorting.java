@@ -1,4 +1,4 @@
-package ru.diasoft.micro.service.orderable;
+package ru.did.jpaenumcustomrsort.aspect;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

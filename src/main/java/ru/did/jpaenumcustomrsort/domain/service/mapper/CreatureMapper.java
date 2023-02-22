@@ -1,19 +1,25 @@
-package ru.diasoft.micro.service.mapper;
+package ru.did.jpaenumcustomrsort.domain.service.mapper;
 
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import ru.diasoft.micro.controller.dto.TCandidateSource;
-import ru.diasoft.micro.controller.dto.TCandidateSourceType;
-import ru.diasoft.micro.domain.model.CandidateSourceDM;
-import ru.diasoft.micro.domain.model.CandidateSourceType;
+import ru.did.jpaenumcustomrsort.domain.controller.CreatureDto;
+import ru.did.jpaenumcustomrsort.domain.enums.CreatureKind;
+import ru.did.jpaenumcustomrsort.domain.model.Creature;
 
-@Mapper(componentModel = "spring")
-public interface CandidateSourceMapper {
+import java.math.BigDecimal;
+import java.util.Optional;
 
-    @Mapping(target = "sourceType", source = "type.name")
-    @Mapping(target = "sourceTypeName", source = "type.title")
-    TCandidateSource to(CandidateSourceDM byId);
 
-    @Mapping(target = "sourceType", source = "name")
-    TCandidateSourceType toType(CandidateSourceType o);
+public class CreatureMapper {
+
+    public static CreatureDto to(Creature o) {
+        CreatureDto dto = new CreatureDto();
+
+        dto.setId(o.getId());
+        dto.setName(o.getName());
+        Optional.ofNullable(o.getKind()).map(Enum::name).ifPresent(dto::setKind);
+        Optional.ofNullable(o.getKind()).map(CreatureKind::getLegCount).ifPresent(dto::setLegCount);
+        Optional.ofNullable(o.getWeight()).map(BigDecimal::doubleValue).ifPresent(dto::setWeight);
+
+        return dto;
+    }
+
 }

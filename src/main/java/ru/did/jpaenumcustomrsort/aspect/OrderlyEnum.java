@@ -1,4 +1,4 @@
-package ru.diasoft.micro.service.orderable;
+package ru.did.jpaenumcustomrsort.aspect;
 
 public interface OrderlyEnum {
     String ORDER_METHOD = "getSortOrder";

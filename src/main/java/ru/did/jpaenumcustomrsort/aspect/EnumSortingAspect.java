@@ -1,4 +1,4 @@
-package ru.diasoft.micro.service.orderable;
+package ru.did.jpaenumcustomrsort.aspect;
 
 import com.querydsl.core.types.dsl.EnumPath;
 import org.apache.commons.lang3.reflect.FieldUtils;
@@ -27,9 +27,8 @@ import static org.apache.commons.lang3.StringUtils.trimToEmpty;
 @Aspect
 @Component
 public class EnumSortingAspect {
-    private static final Logger log = LogManager.getLogger(EnumSortingAspect.class);
 
-    @Around("@annotation(ru.diasoft.micro.service.orderable.EnumSorting)")
+    @Around("@annotation(ru.did.jpaenumcustomrsort.aspect.EnumSorting)")
     public Object modifyPageableIfEnumSort(ProceedingJoinPoint point) throws Throwable {
         Pageable pageable = getPageable(point);
         if (Objects.isNull(pageable))
@@ -108,7 +107,7 @@ public class EnumSortingAspect {
                 sortOrders.put(name, sortOrder);
             }
         } catch (Exception ex) {
-            log.error(ex);
+            ex.printStackTrace();
             return new HashMap<>();
         }
         return sortOrders;

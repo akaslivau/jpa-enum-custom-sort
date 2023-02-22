@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JpaEnumCustomrSortApplication {
+public class JpaEnumCustomSortApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(JpaEnumCustomrSortApplication.class, args);
+        SpringApplication.run(JpaEnumCustomSortApplication.class, args);
     }
 
 }

@@ -1,13 +1,9 @@
-package ru.diasoft.micro.data.repository.jpa;
+package ru.did.jpaenumcustomrsort.domain.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
-import ru.diasoft.micro.domain.model.CandidateActivityType;
+import ru.did.jpaenumcustomrsort.domain.model.Creature;
 
-import java.util.Optional;
-
-public interface CandidateActivityTypeJpaRepository extends JpaRepository<CandidateActivityType, Long>, QuerydslPredicateExecutor<CandidateActivityType> {
-
-    Optional<CandidateActivityType> findByNameIgnoreCase(String name);
+public interface CreatureJpaRepository extends JpaRepository<Creature, Long>, QuerydslPredicateExecutor<Creature> {
 
 }

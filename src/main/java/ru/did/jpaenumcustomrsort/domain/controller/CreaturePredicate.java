@@ -6,24 +6,25 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class CreatureDto {
+public class CreaturePredicate {
 
-    @JsonProperty("id")
-    private Long id;
 
     @JsonProperty("name")
     private String name;
 
-    @JsonProperty("kind")
-    private String kind;
+    @JsonProperty("kinds")
+    private List<String> kinds;
 
-    @JsonProperty("legCount")
-    private Integer legCount;
+    @JsonProperty("weightFrom")
+    private Long weightFrom;
 
-    @JsonProperty("weight")
-    private Long weight;
+    @JsonProperty("weightTo")
+    private Long weightTo;
+
 }
